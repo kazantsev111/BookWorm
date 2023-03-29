@@ -7,6 +7,7 @@ import indexRouter from './routes/indexRouter';
 import apiBookRouter from './routes/apiBookRouter';
 // import apiRouter from './routes/apiRouter';
 import jsxRender from './utils/jsxRender';
+import authRouter from './routes/authRouter';
 
 require('dotenv').config();
 
@@ -43,6 +44,8 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
+app.use('/api/auth', authRouter);
+
 // app.use('/api/v1', apiRouter);
 app.use('/api/book', apiBookRouter);
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
