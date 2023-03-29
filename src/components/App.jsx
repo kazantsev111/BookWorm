@@ -4,6 +4,7 @@ import HomePage from './UI/HomePage';
 import LoginPage from './UI/LoginPage';
 import NavBar from './UI/NavBar';
 import SignUpPage from './UI/SignUpPage';
+import AddPage from '../Books/AddPage';
 
 export default function App() {
   // const [students, setStudents] = useState(backendStudents);
@@ -23,7 +24,9 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/add" element={<AddPage />} />
       </Routes>
     </div>
   );
 }
+
