@@ -28,7 +28,8 @@ export default function Layout({ initState }) {
         />
         <script defer src="/app.js" />
         <script defer src="/vendor.js" />
-        <title>Document</title>
+        <link rel="icon" href="https://top-fon.com/uploads/posts/2023-02/1675541431_top-fon-com-p-kartinki-dlya-prezentatsii-knigi-prozrachn-66.png" />
+        <title>Книжный червь</title>
       </head>
       <body>
         <div id="root">
