@@ -35,9 +35,9 @@ export default function SignUpPage() {
         </div>
 
         <div className="mb-3">
-          <label htmlFor="usernameinput" className="form-label">
+          <label htmlFor="nameinput" className="form-label">
             Name
-            <input name="username" type="text" className="form-control" id="usernameinput" />
+            <input name="name" type="text" className="form-control" id="nameinput" />
           </label>
         </div>
 

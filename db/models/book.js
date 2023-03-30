@@ -5,16 +5,17 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Book extends Model {
   
-    static associate({ User }) {
+    static associate({ User, Book }) {
       this.belongsTo(User, {
         foreignKey: 'userId'
       });
-      this.hasMany(User, {
+      this.hasMany(Book, {
         foreignKey: 'bookId'
       });
     }
   }
   Book.init({
+    autor: DataTypes.STRING,
     title: DataTypes.STRING,
     body: DataTypes.TEXT,
     rate: DataTypes.INTEGER,

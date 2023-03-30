@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack -wd eval-source-map",
     "dev": "babel-node src/server.js",
-    "start": "webpack -d eval-source-map && babel-node src/server.js"
+    "start": "webpack -d eval-source-map && babel-node src/server.js",
+    "prep-db": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate"
   },
   "keywords": [],
   "author": "",

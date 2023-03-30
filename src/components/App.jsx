@@ -4,9 +4,10 @@ import HomePage from './UI/HomePage';
 import LoginPage from './UI/LoginPage';
 import NavBar from './UI/NavBar';
 import SignUpPage from './UI/SignUpPage';
-import AddPage from '../Books/AddPage';
+import AddPage from './Books/AddPage';
+import FormBook from './Books/FormBook';
 
-export default function App() {
+export default function App({ user }) {
   // const [students, setStudents] = useState(backendStudents);
   // const deleteHandler = async (studentsId) => {
   //   try {
@@ -19,14 +20,13 @@ export default function App() {
   //   }
   return (
     <div className="container">
-      <NavBar />
+      <NavBar user={user} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/add" element={<AddPage />} />
+        <Route path="/addbook" element={<FormBook />} />
       </Routes>
     </div>
   );
 }
-
