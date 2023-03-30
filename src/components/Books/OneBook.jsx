@@ -1,14 +1,13 @@
 import React from 'react';
 
-export default function OneBook() {
-
+export default function bookCard({ book }) {
+  console.log("+++++++>>>>>>>>>>>", book);
   return (
-    <div className="card" style={{"width: 18rem;"}}>
-      <img src="..." className="card-img-top" alt="..." />
+    <div className="card" style={{ width: '18rem' }}>
       <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="/api/book/${BooksCard.id}" className="btn btn-primary">Go somewhere</a>
+        <h5 className="card-title">{book.title}</h5>
+        <p className="card-text">{book.autorbook}</p>
+        <p className="card-text">{book.body}</p>
       </div>
     </div>
   );

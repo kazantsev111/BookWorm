@@ -4,6 +4,7 @@ import session from 'express-session';
 import store from 'session-file-store';
 import path from 'path';
 import indexRouter from './routes/indexRouter';
+import booksRouter from './routes/booksRouter';
 // import apiRouter from './routes/apiRouter';
 // import resLocals from './middlewares/resLocals';
 import jsxRender from './utils/jsxRender';
@@ -11,10 +12,9 @@ import authRouter from './routes/authRouter';
 
 require('dotenv').config();
 
-const PORT = process.env.SERVER_PORT || 3000;
+const PORT = 3000;
 const app = express();
 const FileStore = store(session);
-
 
 const sessionConfig = {
   name: 'user_sid', // Имя куки для хранения id сессии. По умолчанию - connect.sid
@@ -39,7 +39,6 @@ app.use(express.json());
 app.use(session(sessionConfig));
 // app.use(resLocals);
 
-
 app.use((req, res, next) => {
   res.locals.path = req.originalUrl;
   res.locals.user = req.session?.user;
@@ -48,6 +47,6 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/api/auth', authRouter);
-
+app.use('/api/books', booksRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

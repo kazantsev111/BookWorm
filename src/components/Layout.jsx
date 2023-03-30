@@ -15,6 +15,7 @@ export default function Layout({ initState }) {
             __html: `window.initState=${JSON.stringify(initState)}`,
           }}
         />
+        <link href="/cssStile.css" rel="stylesheet" />
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -31,7 +32,7 @@ export default function Layout({ initState }) {
         <link rel="icon" href="https://top-fon.com/uploads/posts/2023-02/1675541431_top-fon-com-p-kartinki-dlya-prezentatsii-knigi-prozrachn-66.png" />
         <title>Книжный червь</title>
       </head>
-      <body>
+      <body className="bodycss">
         <div id="root">
           <StaticRouter location={initState.path}>
             <App {...initState} />
