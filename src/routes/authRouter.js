@@ -1,6 +1,7 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
-import { User } from '../../db/models'
+import { User } from '../../db/models';
+
 const authRouter = express.Router();
 
 authRouter.post('/signup', async (req, res) => {

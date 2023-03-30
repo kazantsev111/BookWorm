@@ -4,10 +4,14 @@ import HomePage from './UI/HomePage';
 import LoginPage from './UI/LoginPage';
 import NavBar from './UI/NavBar';
 import SignUpPage from './UI/SignUpPage';
-import AddPage from './Books/AddPage';
-import FormBook from './Books/FormBook';
+// import AddPage from './Books/AddPage';
 
-export default function App({ user }) {
+import FormBook from './Books/FormBook';
+import BooksCard from './Books/BooksCard';
+
+export default function App({ user, books }) {
+  console.log('+++++++>>>>>>>>>>>', books);
+
   // const [students, setStudents] = useState(backendStudents);
   // const deleteHandler = async (studentsId) => {
   //   try {
@@ -20,13 +24,17 @@ export default function App({ user }) {
   //   }
   return (
     <div className="container">
-      <NavBar user={user} />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/addbook" element={<FormBook />} />
-      </Routes>
+      <div className="bodycss">
+
+        <NavBar user={user} />
+        <Routes>
+          <Route path="/" element={<HomePage books={books} />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/addbook" element={<FormBook />} />
+          <Route path="/allbooks" element={<BooksCard books={books} />} />
+        </Routes>
+      </div>
     </div>
   );
 }

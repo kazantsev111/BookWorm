@@ -1,14 +1,15 @@
 import React from 'react';
 import OneBook from './OneBook';
 
-export default function BooksCaed({ books }) {
+export default function BooksCard({ books }) {
   return (
-    <div className="container">
-      <div className="list-group">
-        {books.map((books) => (
-          <OneBook books={book} key={book.id} />
-        ))}
-      </div>
+    <div className="row">
+
+      {books?.map((book) => (
+        <div className="col-4" key={book.id}>
+          <OneBook book={book} />
+        </div>
+      ))}
     </div>
   );
 }

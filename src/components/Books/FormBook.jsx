@@ -1,15 +1,43 @@
 import React from 'react';
+import axios from 'axios';
 
 export default function FormBook() {
+  const booksHeandler = async (e) => {
+    e.preventDefault();
+    const formData = Object.fromEntries(new FormData(e.target));
+    try {
+      const response = await axios.post('/api/books/add', formData);
+      if (response.status === 200) {
+        window.location = '/';
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
-    <form>
+
+    <form onSubmit={booksHeandler}>
 
       <div className="mb-10">
         <label htmlFor="exampleInputEmail1" className="form-label">
 
-          Автор
+          Ссылка на обложку
           <input
-            name="autor"
+            name="img"
+            type="text"
+            className="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </label>
+      </div>
+
+      <div className="mb-10">
+        <label htmlFor="exampleInputEmail1" className="form-label">
+
+          Автор книги
+          <input
+            name="autorbook"
             type="text"
             className="form-control"
             id="exampleInputEmail1"
@@ -39,7 +67,6 @@ export default function FormBook() {
       <button type="submit" className="btn btn-primary">
         Опубликовать
       </button>
-      {/* {errorState && <div style={{ color: 'red' }}>{errorState.message}</div>} */}
     </form>
   );
 }
