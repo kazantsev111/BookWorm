@@ -4,8 +4,8 @@ import session from 'express-session';
 import store from 'session-file-store';
 import path from 'path';
 import indexRouter from './routes/indexRouter';
-import apiBookRouter from './routes/apiBookRouter';
 // import apiRouter from './routes/apiRouter';
+// import resLocals from './middlewares/resLocals';
 import jsxRender from './utils/jsxRender';
 import authRouter from './routes/authRouter';
 
@@ -15,9 +15,6 @@ const PORT = process.env.SERVER_PORT || 3000;
 const app = express();
 const FileStore = store(session);
 
-app.engine('jsx', jsxRender);
-app.set('view engine', 'jsx');
-app.set('views', path.join(__dirname, 'components'));
 
 const sessionConfig = {
   name: 'user_sid', // Имя куки для хранения id сессии. По умолчанию - connect.sid
@@ -31,11 +28,17 @@ const sessionConfig = {
   },
 };
 
+app.engine('jsx', jsxRender);
+app.set('view engine', 'jsx');
+app.set('views', path.join(__dirname, 'components'));
+
 app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(session(sessionConfig));
+// app.use(resLocals);
+
 
 app.use((req, res, next) => {
   res.locals.path = req.originalUrl;
@@ -46,6 +49,5 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/api/auth', authRouter);
 
-// app.use('/api/v1', apiRouter);
-app.use('/api/book', apiBookRouter);
+
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

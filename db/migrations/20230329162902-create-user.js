@@ -18,7 +18,8 @@ module.exports = {
         allowNull: false,
       },
       phone: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: true,
       },
       hashpass: {
         type: Sequelize.STRING,
