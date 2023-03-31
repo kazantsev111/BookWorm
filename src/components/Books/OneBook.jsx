@@ -14,7 +14,7 @@ export default function bookCard({ book, user, setLikebooks }) {
   };
 
   return (
-    <div className="card" style={{ width: '18rem' }}>
+    <div className="card mt-4" style={{ width: '18rem' }}>
       <div className="card-body">
         <a href={`http://localhost:3000/${book.id}`}>
           <img width="255" src={book.img} alt="" />

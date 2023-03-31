@@ -35,6 +35,10 @@ router.get('/likebooks', async (req, res) => {
   res.render('Layout', initState);
 });
 
+router.get('/comments', async (req, res) => {
+  res.render('Layout');
+});
+
 router.get('/:id', async (req, res) => {
   try {
     const {

@@ -1,5 +1,5 @@
 import express from 'express';
-import { Book, Favorite } from '../../db/models';
+import { Book, Favorite, Comment } from '../../db/models';
 import isAuth from '../middlewares/isAuth';
 
 const router = express.Router();
@@ -25,6 +25,19 @@ router.post('/like', isAuth, async (req, res) => {
       where: { bookId, userId },
     });
     if (!created) return res.status(401).json({ message: 'Уже добавлено' });
+    res.sendStatus(200);
+  } catch (error) {
+    res.sendStatus(500);
+  }
+});
+
+router.post('/comets/:id', isAuth, async (req, res) => {
+  try {
+    const {} = req.params;
+    const coment = await Comment.findAll({
+      where: { bookId: req.params.id },
+      imclude: post
+    });
     res.sendStatus(200);
   } catch (error) {
     res.sendStatus(500);
