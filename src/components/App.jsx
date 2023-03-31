@@ -6,8 +6,11 @@ import NavBar from './UI/NavBar';
 import SignUpPage from './UI/SignUpPage';
 import LikeBooks from './Books/LikeBooks';
 import FormBook from './Books/FormBook';
+import BookOnePage from './Books/BookOnePage';
 
-export default function App({ user, books, likeBooks }) {
+export default function App({
+  user, books, likeBooks, bookOne,
+}) {
   // const [students, setStudents] = useState(backendStudents);
   // const deleteHandler = async (studentsId) => {
   //   try {
@@ -28,6 +31,7 @@ export default function App({ user, books, likeBooks }) {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/addbook" element={<FormBook />} />
+          <Route path="/:id" element={<BookOnePage bookOne={bookOne} />} />
         </Routes>
       </div>
     </div>
