@@ -39,6 +39,18 @@ router.get('/comments', async (req, res) => {
   res.render('Layout');
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const {
+      img, autorbook, title, body,
+    } = req.body;
+    const bookOne = await Book.findOne({ where: { id: req.params.id } });
+    res.render('Layout', { bookOne });
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
 export default router;
 
 // element={<BooksCard books={books} />}

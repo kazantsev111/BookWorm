@@ -6,9 +6,9 @@ export default function HomePage({ books, user }) {
     <div>
       <section className="py-5 mb-4 text-center container">
         <div className="">
-          <div className="col-lg-6 col-md-8 mx-auto rounded border border-warning bg-warning-subtle p-2 text-dark bg-opacity-50">
+          <div className="col-lg-6 col-md-8 mx-auto rounded border border-body bg-body p-2 text-dark bg-opacity-75">
             <h1 className="fw-light">Каталог</h1>
-            <p className="lead ">Добро пожаловать на наш сайт, посвященный миру книг! Здесь вы найдете самые свежие и интересные рецензии на различные произведения литературы, а также сможете поделиться своим мнением о прочитанных книгах. Мы стремимся создать уютное и дружелюбное сообщество книголюбов, где каждый найдет для себя что-то новое и увлекательное. Присоединяйтесь к нам и давайте вместе откроем для себя мир литературы!</p>
+            <p className="fw-light fst-italic">Добро пожаловать на наш сайт, посвященный миру книг! Здесь вы найдете самые свежие и интересные рецензии на различные произведения литературы, а также сможете поделиться своим мнением о прочитанных книгах. Мы стремимся создать уютное и дружелюбное сообщество книголюбов, где каждый найдет для себя что-то новое и увлекательное. Присоединяйтесь к нам и давайте вместе откроем для себя мир литературы!</p>
             <p>
               <a href="/addbook" className="w-20 btn btn-lg btn-outline-dark ">Добавить рецензию </a>
             </p>
@@ -20,10 +20,10 @@ export default function HomePage({ books, user }) {
         <BooksCard books={books} user={user} />
       </div>
       {/* нижний колонтикул */}
-      <footer className="text-muted py-5">
+      <footer className="text-muted mt-5 rounded border border-body bg-body p-2 text-dark bg-opacity-75">
         <div className="container">
-          <p className="mb-1">Есть замечания или предложения по работе сайта?</p>
-          <p className="mb-0">
+          <p className="mb-1 fst-italic">Есть замечания или предложения по работе сайта?</p>
+          <p className="mb-0 fst-italic">
             Можешь связаться со мной:
             {' '}
             <a href="https://t.me/SvetlanaKoreysha">

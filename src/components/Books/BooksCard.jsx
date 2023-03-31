@@ -9,7 +9,9 @@ export default function BooksCard({ books, user }) {
 
         {books?.map((book) => (
           <div className="col-4" key={book.id}>
-            <OneBook book={book} user={user} />
+            
+              <OneBook book={book} user={user} />
+            
           </div>
         ))}
       </div>

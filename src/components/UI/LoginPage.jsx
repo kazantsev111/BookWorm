@@ -25,10 +25,10 @@ export default function LoginPage() {
     }
   };
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className="col-lg-6 mt-5 col-md-8 mx-auto rounded border border-body bg-body p-2 text-dark bg-opacity-75">
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">
-          Email address
+          Почта
           <input
             value={inputGroup.email}
             onChange={changeHandler}
@@ -41,12 +41,12 @@ export default function LoginPage() {
         </label>
 
         <div id="emailHelp" className="form-text">
-          Email must be of the form *@*
+          Почта должна содержать @
         </div>
       </div>
       <div className="mb-3">
         <label htmlFor="exampleInputPassword1" className="form-label">
-          Password
+          Пароль
           <input
             value={inputGroup.password}
             onChange={changeHandler}
@@ -56,13 +56,13 @@ export default function LoginPage() {
             id="exampleInputPassword1"
           />
           <div id="validationServer03Feedback" className="invalid-feedback">
-            Too short password
+            Слишком короткий пароль
           </div>
         </label>
       </div>
 
       <button type="submit" className="btn btn-primary">
-        Submit
+        Войти
       </button>
       {errorState && <div style={{ color: 'red' }}>{errorState.message}</div>}
     </form>
