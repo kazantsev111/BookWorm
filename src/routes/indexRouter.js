@@ -35,6 +35,10 @@ router.get('/likebooks', async (req, res) => {
   res.render('Layout', initState);
 });
 
+router.get('/comments', async (req, res) => {
+  res.render('Layout');
+});
+
 export default router;
 
 // element={<BooksCard books={books} />}
