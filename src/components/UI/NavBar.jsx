@@ -47,7 +47,7 @@ export default function NavBar({ user }) {
                   <a className="nav-link" href="/addbook">🧩Добавить книгу</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/likebooks">Избранное</a>
+                  <a className="nav-link" href="/likebooks">🧡Избранное</a>
                 </li>
                 <li className="nav-item">
                   <button type="button" className="nav-link" onClick={logoutHandler}>

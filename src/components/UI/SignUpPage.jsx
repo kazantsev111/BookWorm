@@ -16,10 +16,10 @@ export default function SignUpPage() {
   };
   return (
     <form onSubmit={submitHandler}>
-      <div className=" ">
+      <div className="col-lg-6 mt-5 col-md-8 mx-auto rounded border border-body bg-body p-2 text-dark bg-opacity-75">
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
-            Email address
+            Почта
             <input
               name="email"
               type="email"
@@ -30,27 +30,27 @@ export default function SignUpPage() {
           </label>
 
           <div id="emailHelp" className="form-text">
-            Email of the form *@*
+            Почта должна содержать @
           </div>
         </div>
 
         <div className="mb-3">
           <label htmlFor="nameinput" className="form-label">
-            Name
+            Имя
             <input name="name" type="text" className="form-control" id="nameinput" />
           </label>
         </div>
 
         <div className="mb-3">
           <label htmlFor="phoneinput" className="form-label">
-            Phone
+            Телефон
             <input name="phone" type="text" className="form-control" id="imginput" />
           </label>
         </div>
 
         <div className="mb-3">
           <label htmlFor="exampleInputPassword1" className="form-label">
-            Password
+            Придумайте пароль
             <input
               name="password"
               type="password"
@@ -60,7 +60,7 @@ export default function SignUpPage() {
           </label>
         </div>
         <button type="submit" className="btn btn-primary">
-          Submit
+          Зарегистрироваться
         </button>
       </div>
     </form>
