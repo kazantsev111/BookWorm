@@ -4,14 +4,10 @@ import HomePage from './UI/HomePage';
 import LoginPage from './UI/LoginPage';
 import NavBar from './UI/NavBar';
 import SignUpPage from './UI/SignUpPage';
-// import AddPage from './Books/AddPage';
-
+import LikeBooks from './Books/LikeBooks';
 import FormBook from './Books/FormBook';
-import BooksCard from './Books/BooksCard';
 
-export default function App({ user, books }) {
-  console.log('+++++++>>>>>>>>>>>', books);
-
+export default function App({ user, books, likeBooks }) {
   // const [students, setStudents] = useState(backendStudents);
   // const deleteHandler = async (studentsId) => {
   //   try {
@@ -25,14 +21,13 @@ export default function App({ user, books }) {
   return (
     <div className="container">
       <div className="bodycss">
-
         <NavBar user={user} />
         <Routes>
-          <Route path="/" element={<HomePage books={books} />} />
+          <Route path="/" element={<HomePage books={books} user={user} />} />
+          <Route path="/likebooks" element={<LikeBooks books={likeBooks} user={user} />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/addbook" element={<FormBook />} />
-          <Route path="/allbooks" element={<BooksCard books={books} />} />
         </Routes>
       </div>
     </div>
