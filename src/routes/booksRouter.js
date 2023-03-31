@@ -1,16 +1,48 @@
 import express from 'express';
-import { Book } from '../../db/models';
+import { Book, Favorite } from '../../db/models';
+import isAuth from '../middlewares/isAuth';
 
 const router = express.Router();
 
-router.post('/add', async (req, res) => {
-  const {
-    img, autorbook, title, body,
-  } = req.body;
-  const books = await Book.create({
-    img, autorbook, title, body,
-  });
-  res.sendStatus(200);
+router.post('/add', isAuth, async (req, res) => {
+  try {
+    const {
+      img, autorbook, title, body,
+    } = req.body;
+    const books = await Book.create({
+      img, autorbook, title, body,
+    });
+    res.sendStatus(200);
+  } catch (error) {
+    res.sendStatus(500);
+  }
+});
+
+router.post('/like', isAuth, async (req, res) => {
+  try {
+    const { userId, bookId } = req.body;
+    const [favoriteBook, created] = await Favorite.findOrCreate({
+      where: { bookId, userId },
+    });
+    if (!created) return res.status(401).json({ message: 'Уже добавлено' });
+    res.sendStatus(200);
+  } catch (error) {
+    res.sendStatus(500);
+  }
+});
+
+router.delete('/like/:id', isAuth, async (req, res) => {
+  try {
+    const { id } = req.params;
+// console.log({ bookId: Number(id), userId: req.session.user.id });
+    const book = await Favorite.destroy({
+      where: { bookId: id, userId: req.session.user.id },
+    });
+    return res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    return res.sendStatus(500);
+  }
 });
 
 export default router;

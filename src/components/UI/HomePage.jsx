@@ -1,25 +1,23 @@
 import React from 'react';
 import BooksCard from '../Books/BooksCard';
 
-export default function HomePage({ books }) {
-  console.log("+++++++>>>>>>>>>>>", books);
-
+export default function HomePage({ books, user }) {
   return (
     <div>
-      <section className="py-5 text-center container">
-        <div className="row py-lg-5">
-          <div className="col-lg-6 col-md-8 mx-auto">
+      <section className="py-5 mb-4 text-center container">
+        <div className="">
+          <div className="col-lg-6 col-md-8 mx-auto rounded border border-warning bg-warning-subtle p-2 text-dark bg-opacity-50">
             <h1 className="fw-light">Каталог</h1>
-            <p className="lead text-muted">Добро пожаловать на наш сайт, посвященный миру книг! Здесь вы найдете самые свежие и интересные рецензии на различные произведения литературы, а также сможете поделиться своим мнением о прочитанных книгах. Мы стремимся создать уютное и дружелюбное сообщество книголюбов, где каждый найдет для себя что-то новое и увлекательное. Присоединяйтесь к нам и давайте вместе откроем для себя мир литературы!</p>
+            <p className="lead ">Добро пожаловать на наш сайт, посвященный миру книг! Здесь вы найдете самые свежие и интересные рецензии на различные произведения литературы, а также сможете поделиться своим мнением о прочитанных книгах. Мы стремимся создать уютное и дружелюбное сообщество книголюбов, где каждый найдет для себя что-то новое и увлекательное. Присоединяйтесь к нам и давайте вместе откроем для себя мир литературы!</p>
             <p>
-              <a href="/addbook" className="btn btn-primary my-2">Добавить рецензию </a>
+              <a href="/addbook" className="w-20 btn btn-lg btn-outline-dark ">Добавить рецензию </a>
             </p>
           </div>
         </div>
       </section>
       {/* карточки добавленных книг */}
       <div>
-        <BooksCard books={books} />
+        <BooksCard books={books} user={user} />
       </div>
       {/* нижний колонтикул */}
       <footer className="text-muted py-5">
